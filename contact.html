@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NITIN.DEV | Contact</title>
+    <meta name="description" content="Contact NITIN.DEV for web development projects, questions and collaborations.">
+
+    <link rel="stylesheet" href="contact.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND -->
+    <div class="grid-bg"></div>
+    <div class="particles" id="particles"></div>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-outline" id="cursorOutline"></div>
+
+    <!-- HEADER -->
+    <header class="header" id="header">
+
+        <a href="index.html" class="logo">
+            NITIN<span>.DEV</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Toggle navigation"
+                aria-controls="navbar"
+                aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav class="navbar" id="navbar">
+            <a href="index.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            <a href="services.html">SERVICES</a>
+            <a href="skill.html">SKILLS</a>
+            <a href="project.html">PROJECTS</a>
+            <a href="contact.html" class="active">CONTACT</a>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <!-- CONTACT HERO -->
+        <section class="contact-hero">
+
+            <div class="section-label">
+                <span></span>
+                GET IN TOUCH
+            </div>
+
+            <h1>LET'S <span>CONNECT.</span></h1>
+
+            <p>
+                Have a project idea, a question or just want to say hello?
+                I'd love to hear from you. Let's create something meaningful together.
+            </p>
+
+            <div class="hero-bottom">
+                <span><i class="fa-solid fa-circle"></i> OPEN TO OPPORTUNITIES</span>
+                <span><i class="fa-solid fa-message"></i> LET'S TALK</span>
+            </div>
+
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="contact-section">
+
+            <div class="contact-layout">
+
+                <!-- CONTACT INFORMATION -->
+                <div class="contact-info reveal">
+
+                    <span class="small-label">CONTACT INFORMATION</span>
+
+                    <h2>
+                        LET'S START<br>
+                        A <span>CONVERSATION.</span>
+                    </h2>
+
+                    <p class="info-description">
+                        Whether you have a project in mind or want to
+                        discuss an idea, feel free to reach out.
+                        I'll be happy to connect with you.
+                    </p>
+
+                    <div class="info-item">
+
+                        <div class="info-icon">
+                            <i class="fa-regular fa-envelope"></i>
+                        </div>
+
+                        <div>
+                            <span>EMAIL ME</span>
+                            <a href="mailto:akhilbhaiji723@gmail.com" class="info-link">
+                                akhilbhaiji723@gmail.com
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <div class="info-item">
+
+                        <div class="info-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+
+                        <div>
+                            <span>LOCATION</span>
+                            <p>Prayagraj, Uttar Pradesh, India</p>
+                        </div>
+
+                    </div>
+
+                    <div class="info-item">
+
+                        <div class="info-icon">
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+
+                        <div>
+                            <span>AVAILABILITY</span>
+                            <p>Open to new opportunities</p>
+                        </div>
+
+                    </div>
+
+                    <!-- SOCIAL LINKS -->
+                    <div class="social-area">
+
+                        <span>FOLLOW ME</span>
+
+                        <div class="social-links">
+
+                            <a href="https://github.com/NITINSINGH1313"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="GitHub">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+
+                            <!-- Add your LinkedIn profile URL here -->
+                            <a href="https://wa.me/916392363271"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               aria-label="WhatsApp">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+
+                            <!-- Add your Instagram profile URL here -->
+                            <a href="https://www.instagram.com/
+                            lancer_nitin/" aria-label="Instagram">
+                                <i class="fa-brands fa-instagram"></i></a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- CONTACT FORM -->
+                <div class="contact-form-box reveal">
+
+                    <div class="form-heading">
+                        <span class="small-label">SEND A MESSAGE</span>
+                        <h3>LET'S TALK<span>.</span></h3>
+                        <p>Fill out the form below and tell me about your idea.</p>
+                    </div>
+
+                    <form id="contactForm">
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+                                <label for="name">YOUR NAME</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Enter your name"
+                                    autocomplete="name"
+                                    maxlength="80"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">YOUR EMAIL</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="Enter your email"
+                                    autocomplete="email"
+                                    maxlength="120"
+                                    required
+                                >
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">SUBJECT</label>
+                            <input
+                                type="text"
+                                id="subject"
+                                name="subject"
+                                placeholder="What is this about?"
+                                maxlength="120"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">YOUR MESSAGE</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="6"
+                                placeholder="Tell me about your project or idea..."
+                                maxlength="3000"
+                                required
+                            ></textarea>
+                        </div>
+
+                        <button type="submit" class="send-button">
+                            SEND MESSAGE
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                        <p class="form-status" id="formStatus" aria-live="polite"></p>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- BOTTOM CTA -->
+        <section class="contact-bottom reveal">
+
+            <span class="small-label">HAVE SOMETHING IN MIND?</span>
+
+            <h2>
+                LET'S MAKE IT<br>
+                <span>HAPPEN.</span>
+            </h2>
+
+            <p>
+                Good ideas start with a conversation.
+                Let's turn your next idea into reality.
+            </p>
+
+            <a href="mailto:akhilbhaiji723@gmail.com" class="email-button">
+                SAY HELLO
+                <i class="fa-solid fa-paper-plane"></i>
+            </a>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <a href="index.html" class="logo">
+            NITIN<span>.DEV</span>
+        </a>
+
+        <p>DESIGNED & DEVELOPED BY NITIN SINGH</p>
+
+        <span>© 2026 ALL RIGHTS RESERVED.</span>
+
+    </footer>
+
+    <script src="contact.js"></script>
+
+</body>
+</html>

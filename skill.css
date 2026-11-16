@@ -1,0 +1,1027 @@
+
+/* =========================================
+   NITIN.DEV - SKILLS PAGE CSS
+========================================= */
+
+:root {
+    --bg: #080808;
+    --bg-light: #111111;
+    --red: #ed1730;
+    --white: #f5f5f5;
+    --gray: #858585;
+    --mono: "DM Mono", monospace;
+    --font: "Inter", sans-serif;
+    --border: rgba(255,255,255,.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: var(--font);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font: inherit;
+}
+
+/* =====================================
+   BACKGROUND
+===================================== */
+
+.grid-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 55px 55px;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    top: 15%;
+    left: -250px;
+    background: rgba(237,23,48,.07);
+    filter: blur(130px);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* =====================================
+   CUSTOM CURSOR + PARTICLES
+===================================== */
+
+@media (pointer: fine) {
+
+    body,
+    a,
+    button {
+        cursor: none;
+    }
+
+    .cursor-dot,
+    .cursor-outline {
+        position: fixed;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+    }
+
+    .cursor-dot {
+        width: 7px;
+        height: 7px;
+        background: var(--red);
+        z-index: 10001;
+        box-shadow: 0 0 12px rgba(237,23,48,.8);
+    }
+
+    .cursor-outline {
+        width: 35px;
+        height: 35px;
+        border: 1px solid rgba(237,23,48,.8);
+        z-index: 10000;
+        transition:
+            width .2s ease,
+            height .2s ease,
+            border-color .2s ease,
+            background .2s ease;
+    }
+
+    .cursor-outline.hover {
+        width: 55px;
+        height: 55px;
+        border-color: white;
+        background: rgba(237,23,48,.08);
+    }
+
+    .particles {
+        position: fixed;
+        inset: 0;
+        z-index: 9998;
+        pointer-events: none;
+        overflow: hidden;
+    }
+
+    .particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: var(--red);
+        border-radius: 50%;
+        pointer-events: none;
+        box-shadow: 0 0 12px var(--red);
+        animation: particleFade .75s ease-out forwards;
+    }
+
+    @keyframes particleFade {
+        0% {
+            opacity: .9;
+            transform: scale(1);
+        }
+
+        100% {
+            opacity: 0;
+            transform: scale(0) translateY(-15px);
+        }
+    }
+}
+
+/* =====================================
+   HEADER
+===================================== */
+
+.header {
+    width: 100%;
+    height: 85px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: rgba(8,8,8,.94);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+    transition: height .3s ease, background .3s ease;
+}
+
+.header.scrolled {
+    height: 72px;
+    background: rgba(8,8,8,.98);
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: var(--red);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navbar a {
+    color: #999;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 1px;
+    transition: .3s;
+    position: relative;
+}
+
+.navbar a::after {
+    content: "";
+    position: absolute;
+    bottom: -9px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--red);
+    transition: .3s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: #fff;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+    width: 100%;
+}
+
+.header-btn {
+    padding: 13px 19px;
+    border: 1px solid var(--red);
+    font-family: var(--mono);
+    font-size: 11px;
+    transition: .3s;
+    white-space: nowrap;
+}
+
+.header-btn:hover {
+    background: var(--red);
+}
+
+.menu-toggle {
+    display: none;
+    color: white;
+    background: transparent;
+    border: none;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+/* =====================================
+   HERO
+===================================== */
+
+.skills-hero {
+    min-height: 530px;
+    padding: 155px 8% 85px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+    background:
+        radial-gradient(
+            ellipse at 85% 45%,
+            rgba(237,23,48,.10),
+            transparent 42%
+        ),
+        transparent;
+}
+
+.section-label,
+.small-label {
+    color: var(--red);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+
+.section-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.section-label span {
+    width: 30px;
+    height: 2px;
+    background: var(--red);
+}
+
+.skills-hero h1 {
+    font-size: clamp(65px, 10vw, 125px);
+    font-weight: 900;
+    letter-spacing: -7px;
+    line-height: .95;
+}
+
+.skills-hero h1 span {
+    color: var(--red);
+}
+
+.skills-hero > p {
+    max-width: 570px;
+    margin-top: 30px;
+    color: var(--gray);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.hero-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 45px;
+}
+
+.hero-bottom span {
+    color: #aaa;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.hero-bottom i {
+    color: var(--red);
+    margin-right: 7px;
+}
+
+/* =====================================
+   SKILLS SECTION
+===================================== */
+
+.skills-section {
+    padding: 110px 8%;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 30px;
+    margin-bottom: 55px;
+}
+
+.section-heading h2 {
+    font-size: clamp(35px, 5vw, 55px);
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-top: 15px;
+}
+
+.section-heading h2 span {
+    color: var(--red);
+}
+
+.section-heading > p {
+    max-width: 300px;
+    color: var(--gray);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* =====================================
+   SKILL CARDS
+===================================== */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    align-items: stretch;
+}
+
+.skill-card {
+    padding: 32px 27px 25px;
+    background: linear-gradient(145deg, #151515, #0d0d0d);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    transition: .4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.skill-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--red);
+    transition: .4s;
+}
+
+.skill-card:hover {
+    transform: translateY(-9px);
+    border-color: rgba(237,23,48,.45);
+    box-shadow: 0 20px 55px rgba(0,0,0,.35);
+}
+
+.skill-card:hover::before {
+    width: 100%;
+}
+
+.card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.skill-icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    background: rgba(237,23,48,.1);
+    color: var(--red);
+    font-size: 22px;
+    border: 1px solid rgba(237,23,48,.2);
+}
+
+.card-number {
+    color: #444;
+    font-family: var(--mono);
+    font-size: 13px;
+}
+
+.skill-card h3 {
+    font-size: 21px;
+    margin-top: 30px;
+    font-weight: 700;
+}
+
+.card-description {
+    color: var(--gray);
+    font-size: 12px;
+    line-height: 1.8;
+    margin-top: 12px;
+    min-height: 45px;
+}
+
+.skill-list {
+    margin-top: 32px;
+}
+
+.skill-item {
+    margin-bottom: 23px;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 8px;
+}
+
+.skill-info span:first-child {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.skill-info i {
+    color: var(--red);
+    font-size: 15px;
+    margin-right: 7px;
+}
+
+.skill-info span:last-child {
+    color: var(--gray);
+    font-family: var(--mono);
+    font-size: 9px;
+    text-transform: uppercase;
+}
+
+.skill-track {
+    width: 100%;
+    height: 4px;
+    background: #292929;
+    overflow: hidden;
+}
+
+.skill-progress {
+    width: 0;
+    height: 100%;
+    background: var(--red);
+    box-shadow: 0 0 12px rgba(237,23,48,.6);
+    transition: width 1.4s cubic-bezier(.2,.8,.2,1);
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    margin-top: auto;
+}
+
+.card-footer span {
+    color: #666;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.card-footer i {
+    color: var(--red);
+    font-size: 13px;
+}
+
+/* =====================================
+   LEARNING SECTION
+===================================== */
+
+.learning-section {
+    padding: 100px 8%;
+    background: #101010;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.learning-content h2 {
+    font-size: clamp(45px, 6vw, 75px);
+    font-weight: 900;
+    letter-spacing: -4px;
+    line-height: 1.05;
+    margin-top: 20px;
+}
+
+.learning-content h2 span {
+    color: var(--red);
+}
+
+.learning-content > p {
+    color: var(--gray);
+    max-width: 480px;
+    font-size: 13px;
+    line-height: 1.9;
+    margin-top: 25px;
+}
+
+.learning-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.learning-tags span {
+    padding: 12px 15px;
+    border: 1px solid #303030;
+    color: #bbb;
+    font-family: var(--mono);
+    font-size: 10px;
+    transition: .3s;
+}
+
+.learning-tags span:hover {
+    color: white;
+    border-color: var(--red);
+    background: rgba(237,23,48,.08);
+}
+
+.learning-tags i {
+    color: var(--red);
+    margin-right: 7px;
+}
+
+/* =====================================
+   LEARNING CIRCLE
+===================================== */
+
+.learning-visual {
+    min-height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.learning-circle {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    border: 1px solid rgba(237,23,48,.5);
+    display: grid;
+    place-items: center;
+    box-shadow: 0 0 50px rgba(237,23,48,.08);
+    animation: circlePulse 3s ease-in-out infinite;
+    z-index: 1;
+}
+
+.circle-inner {
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    background: #171717;
+    border: 1px solid #292929;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.circle-inner i {
+    font-size: 35px;
+    color: var(--red);
+    margin-bottom: 15px;
+}
+
+.circle-inner span {
+    font-family: var(--mono);
+    color: #888;
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+.circle-inner strong {
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+.orbit {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 1px dashed rgba(237,23,48,.2);
+    border-radius: 50%;
+    animation: rotateOrbit 18s linear infinite;
+}
+
+.orbit-two {
+    width: 360px;
+    height: 360px;
+    border-color: rgba(255,255,255,.08);
+    animation-direction: reverse;
+    animation-duration: 25s;
+}
+
+.floating-code {
+    position: absolute;
+    color: var(--red);
+    font-family: var(--mono);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.code-one {
+    top: 12%;
+    right: 20%;
+}
+
+.code-two {
+    bottom: 15%;
+    left: 18%;
+}
+
+.code-three {
+    top: 20%;
+    left: 20%;
+}
+
+@keyframes circlePulse {
+    0%, 100% {
+        box-shadow: 0 0 25px rgba(237,23,48,.05);
+    }
+
+    50% {
+        box-shadow: 0 0 60px rgba(237,23,48,.17);
+    }
+}
+
+@keyframes rotateOrbit {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =====================================
+   CTA
+===================================== */
+
+.skills-cta {
+    padding: 110px 8%;
+    text-align: center;
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(237,23,48,.09),
+            transparent 65%
+        );
+}
+
+.skills-cta h2 {
+    font-size: clamp(45px, 8vw, 90px);
+    line-height: 1;
+    letter-spacing: -5px;
+    font-weight: 900;
+    margin: 25px 0 35px;
+}
+
+.skills-cta h2 span {
+    color: var(--red);
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    padding: 17px 27px;
+    background: var(--red);
+    color: white;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.cta-button:hover {
+    background: white;
+    color: var(--red);
+    transform: translateY(-5px);
+}
+
+/* =====================================
+   FOOTER
+===================================== */
+
+.footer {
+    padding: 35px 8%;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    background: #050505;
+}
+
+.footer .logo {
+    font-size: 21px;
+}
+
+.footer p,
+.footer > span {
+    color: #666;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+/* =====================================
+   SCROLL REVEAL
+===================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity .8s ease, transform .8s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =====================================
+   RESPONSIVE
+===================================== */
+
+@media (max-width: 1100px) {
+
+    .header {
+        padding: 0 5%;
+    }
+
+    .navbar {
+        gap: 20px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .skills-section,
+    .learning-section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+@media (max-width: 850px) {
+
+    .header {
+        height: 72px;
+        padding: 0 5%;
+    }
+
+    .header.scrolled {
+        height: 68px;
+    }
+
+    .menu-toggle {
+        display: block;
+        order: 3;
+    }
+
+    .header-btn {
+        margin-left: auto;
+        margin-right: 18px;
+        padding: 10px 12px;
+        font-size: 9px;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 72px;
+        left: 0;
+        width: 100%;
+        padding: 15px 6% 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: #0c0c0c;
+        border-bottom: 1px solid #333;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: .3s ease;
+    }
+
+    .header.scrolled .navbar {
+        top: 68px;
+    }
+
+    .navbar.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .navbar a {
+        width: 100%;
+        padding: 15px 0;
+        border-bottom: 1px solid #222;
+    }
+
+    .navbar a::after {
+        display: none;
+    }
+
+    .navbar a.active {
+        color: var(--red);
+    }
+
+    .skills-hero {
+        min-height: 450px;
+        padding: 135px 6% 70px;
+    }
+
+    .skills-hero h1 {
+        letter-spacing: -4px;
+    }
+
+    .skills-hero > p {
+        font-size: 13px;
+    }
+
+    .skills-section {
+        padding: 80px 6%;
+    }
+
+    .section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .learning-section {
+        grid-template-columns: 1fr;
+        padding: 80px 6%;
+        gap: 35px;
+    }
+
+    .learning-visual {
+        min-height: 380px;
+    }
+
+    .skills-cta {
+        padding: 90px 6%;
+    }
+
+    .skills-cta h2 {
+        letter-spacing: -3px;
+    }
+
+    .footer {
+        padding: 35px 5%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-card {
+        padding: 27px 23px;
+    }
+
+    .learning-visual {
+        min-height: 340px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .logo {
+        font-size: 21px;
+    }
+
+    .header-btn {
+        font-size: 8px;
+        padding: 9px;
+        margin-right: 12px;
+    }
+
+    .skills-hero {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .skills-hero h1 {
+        font-size: 60px;
+        letter-spacing: -4px;
+    }
+
+    .skills-hero > p {
+        font-size: 12px;
+    }
+
+    .hero-bottom {
+        gap: 17px;
+        flex-direction: column;
+    }
+
+    .section-heading h2 {
+        font-size: 36px;
+    }
+
+    .learning-content h2 {
+        font-size: 48px;
+    }
+
+    .learning-circle {
+        width: 200px;
+        height: 200px;
+    }
+
+    .circle-inner {
+        width: 165px;
+        height: 165px;
+    }
+
+    .orbit {
+        width: 250px;
+        height: 250px;
+    }
+
+    .orbit-two {
+        width: 290px;
+        height: 290px;
+    }
+
+    .skills-cta h2 {
+        font-size: 48px;
+        letter-spacing: -3px;
+    }
+
+    .footer p,
+    .footer > span {
+        font-size: 8px;
+    }
+}
+
+/* TOUCH DEVICES */
+
+@media (pointer: coarse) {
+
+    .cursor-dot,
+    .cursor-outline,
+    .particles {
+        display: none !important;
+    }
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
